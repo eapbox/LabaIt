@@ -31,15 +31,7 @@ public class CompetitionImpl implements Competition {
         int nextStep = taskList.get(index);
         int length = taskList.size();
 
-        //для первого хода смотрим, не выходим ли за рамки
-        if (index == 0) {
-            if (((nextStep % 2) == 0) && (nextStep > length) ||
-                ((nextStep % 2) != 0)) {
-                return 0;
-            }
-        }
-
-        //в середине смотрим, не выходим ли за рамки
+        //смотрим, не выходим ли за рамки
         if (((nextStep % 2) == 0) && ((curPosition + nextStep) > length) ||     //не можем двигаться вперед
             ((nextStep % 2) != 0) && ((curPosition - nextStep) < 0)) {         //не можем двигаться назад
             return (countStep + curPosition);
